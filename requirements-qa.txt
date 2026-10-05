@@ -1,0 +1,6 @@
+# Dependency pengujian QA. Ringan: TIDAK menyertakan torch/chromadb/transformers.
+# Suite unit + contract menguji kode murni-Python (kalkulator, tools, prompt)
+# tanpa GPU/model, sehingga bisa jalan di CI gratis.
+pytest>=8
+pytest-cov>=5
+jsonschema>=4.21

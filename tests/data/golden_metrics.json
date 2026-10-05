@@ -1,0 +1,15 @@
+{
+  "_comment": "Ambang regresi retrieval v2 (koleksi pmpt_qa_v2, 605 chunk). Nilai dari README repo utama bagian 'Status proyek'. Test integration GAGAL bila metrik aktual turun di bawah ambang ini. Perbarui hanya lewat PR terpisah dengan bukti laporan reports/evaluation/.",
+  "collection": "pmpt_qa_v2",
+  "total_chunks": 605,
+  "thresholds": {
+    "hit_at_1_pct": 75.9,
+    "hit_at_5_pct": 89.7,
+    "mrr_at_5": 0.82,
+    "citation_page_correct_pct": 96.2
+  },
+  "calc_tests": {
+    "hasil_benar": 18,
+    "total": 18
+  }
+}

@@ -1,0 +1,32 @@
+name: QA
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (dengan submodule app/)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Pasang dependency QA (ringan, tanpa torch)
+        run: pip install -r requirements-qa.txt
+
+      - name: Cek sintaks kode aplikasi yang diuji
+        run: python -m compileall -q app/src/calculator app/src/generation
+
+      - name: Unit + contract test (dengan coverage kalkulator)
+        run: >
+          pytest -m "unit or contract"
+          --cov=app/src/calculator
+          --cov-report=term-missing
